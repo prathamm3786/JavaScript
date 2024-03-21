@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>age verification</title>
+</head>
+<body>
+    
+
+    <script>
+        let number = parseInt(prompt("enter the number here :"))
+        if(number<=0){
+            console.log("Enter valid age.")
+        }
+        else if(number>0 && number<=17){
+            console.log("You are not eligible for voting.")
+        }
+        else if(number>=18 && number<=70){
+            console.log("You are eligible for voting.")
+        }
+        else{
+            console.log("you can't vote now.+")
+        }
+    </script>
+</body>
+</html>
