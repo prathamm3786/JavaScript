@@ -1,32 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>payment options</title>
+    <title>Restaraunt</title>
 </head>
+
 <body>
+
     <script>
 
-        var payment = (prompt("Please select a payment option from\n UPI\n Bank transfer\n card\n Net banking\n Enter your choice for a payment method :"));
+        document.write("press 1 for order Pizza")
+        document.write("press 2 for order Burger")
+        document.write("press 3 for order Garlic Bread")
+        let choice = parseInt(prompt("Enter A number you want to Order..."))
 
-        switch(payment){
-            case 'UPI' :
-                document.write("pay via paytm/Gpay.");
+        switch (choice) {
+
+            case 1:
+                document.write("you choose Pizza. . .")
+
+                document.write("<br>Press 1 for Margherita Pizza . . .")
+                document.write("<br>Press 2 for Tandoori Paneer Pizza. . .")
+                document.write("<br>Press 3 for Veg delight Pizza. . .")
+
+                let pizza = parseInt(prompt("Enter your Choice..."))
+
+                switch (pizza) {
+                    case 1:
+                        document.write("You sucessfully orderd Margherita Pizza.")
+                        break;
+
+                    case 2:
+                        document.write("You sucessfully orderd  Tandoori Paneer Pizza.")
+                        break;
+                    case 3:
+                        document.write("You sucessfully orderd Veg delight Pizza.")
+                        break;
+                    default:
+                        document.write("Invalid Option Please try again.")
+                }
                 break;
-            case 'Bank transfer' :
-                document.write("pay via Bank transfer.");
+
+            case 2:
+                document.write("you choose Burger. . .")
+
+                document.write("<br>Press 1 for Aloo-Tikki Burger. . .")
+                document.write("<br>Press 2 for . . .")
+                document.write("<br>Press 3 for Veg delight Pizza. . .")
+
+                let pizza = parseInt(prompt("Enter your Choice..."))
+
+                switch (pizza) {
+
+                    case 1:
+                        document.write("You sucessfully orderd Margherita Pizza.")
+                        break;
+
+                    case 2:
+                        document.write("You sucessfully orderd  Tandoori Paneer Pizza.")
+                        break;
+                    case 3:
+                        document.write("You sucessfully orderd Veg delight Pizza.")
+                        break;
+                    default:
+                        document.write("Invalid Option Please try again.")
+                }
                 break;
-            case 'card' :
-                document.write("pay via credit/debit card.");
+            case 3:
+                document.write("aapne hindi bhasha pasand ki hai .")
+
+                document.write("mobile recharge ke liye 1 dabaae.")
+                document.write("spacia recharge ke liye 2 dabaae.")
+
+                let hindi = parseInt(prompt("choose what you want"))
+
+                switch (hindi) {
+
+                    case 1:
+                        document.write("recharge ho0 gayaa hai.")
+                        break;
+
+                    case 2:
+                        document.write("spacial recharge ho gayaa hai.")
+                        break;
+
+                }
                 break;
-            case 'Net banking' :
-                document.write("pay via Net banking.");
-                break;
+
             default:
-                document.write("Please,enter a valid payment method : ");
+                document.write("please choose valid option")
 
         }
+
+
+
     </script>
 </body>
+
 </html>
