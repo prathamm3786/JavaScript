@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style=" background:#262626; padding: 20px; border-radius: 20px;">
+        <div class="calculator" style="width: 100%; ">
+            <input type="text" placeholder="0" id="display" style="color: white;font-size: 17px; background: rgb(26, 97, 81);text-align: right; height: 30px;">
+
+            <div style="display: flex; justify-content: space-between; width: 100%;padding: 15px 0 5px 0;">
+                <button onclick="cleardisplay('')">AC</button>
+                <button onclick="backspace('')">C</button>
+                <button value="%s" onclick="addToDisplay('%')" style="background: #ff9f1a; border: none;border-radius: 50%;; color: white;font-size: 15px;">%</button>
+                <button value="/" onclick="addToDisplay('/')" style="background: #ff9f1a; border: none;border-radius: 50%;; color: white;font-size: 20px; text-align: center; display: flex; justify-content: center; align-items: center;">/</button>
+            </div>
+            <div style="display: flex; justify-content: space-between; width: 100%;padding: 5px 0;">
+                <button value="7" onclick="addToDisplay('7')">7</button>
+                <button value="8" onclick="addToDisplay('8')">8</button>
+                <button value="9" onclick="addToDisplay('9')">9</button>
+                <button value="*" onclick="addToDisplay('*')" style="background: #ff9f1a; border: none;border-radius: 50%;; color: white;font-size: 20px; text-align: center; display: flex; justify-content: center; align-items: center;">*</button>
+            </div>
+            <div style="display: flex; justify-content: space-between; width: 100%;padding: 5px 0;">
+                <button value="4" onclick="addToDisplay('4')">4</button>
+                <button value="5" onclick="addToDisplay('5')">5</button>
+                <button value="6" onclick="addToDisplay('6')">6</button>
+                <button value="-" onclick="addToDisplay('-')" style="background: #ff9f1a; border: none;border-radius: 50%;; color: white;font-size: 20px; text-align: center; display: flex; justify-content: center; align-items: center;">-</button>
+            </div>
+            <div style="display: flex; justify-content: space-between; width: 100%; padding: 5px 0;">
+                <button value="1" onclick="addToDisplay('1')">1</button>
+                <button value="2" onclick="addToDisplay('2')">2</button>
+                <button value="3" onclick="addToDisplay('3')">3</button>
+                <button value="+" onclick="addToDisplay('+')" style="background: #ff9f1a; border: none;border-radius: 50%;; color: white;font-size: 20px; text-align: center; display: flex; justify-content: center; align-items: center;">+</button>
+            </div>
+            <div style="display: flex; justify-content: space-between; width: 100%;padding: 5px 0;">
+                <button value="0" onclick="addToDisplay('0')">0</button>
+                <button value="00" onclick="addToDisplay('00')">00</button>
+                <button value="." onclick="addToDisplay('.')">.</button>
+                <button value="=" class="eval" onclick="Calc()" style="background: #ff9f1a; border: none;border-radius: 80px;; color: white;font-size: 20px; text-align: center; display: flex; justify-content: center; align-items: center;">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToDisplay(value) {
+            var display = document.getElementById("display");
+            display.value += value;
+        }
+        function cleardisplay() {
+            var display = document.getElementById("display");
+            display.value = '';
+        }
+        function Calc() {
+            var display = document.getElementById("display");
+            display.value = eval(display.value);
+        }
+        function backspace() {
+        var display = document.getElementById("display");
+        display.value = display.value.slice(0, -1);
+    }
+    </script>
+</body>
+</html>

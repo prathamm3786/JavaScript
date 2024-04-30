@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <form style="width: 70%;" method="post" onsubmit="return pass_check()" name="Formsub">
+            <div class="form-box">
+                <h1 class="title">Sign up</h1>
+                <div class="underline"></div>
+                <div class="input-group">
+                    <div class="input-field namefield">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Name" name="Fname">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="E-mail">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="password1">
+                    </div>
+                    <p><span class="text">Password Suggestions </span><a href="#">Click Here</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="submit" value="submit" class="signUpBtn">Sign up</button>
+                    <button type="button" class="signInBtn disable">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let signupbtn = document.querySelector('.signUpBtn')
+        let signinbtn = document.querySelector('.signInBtn');
+        let Title = document.querySelector('.title');
+        let Namefield = document.querySelector('.namefield');
+        let Underline = document.querySelector('.underline');
+        let text = document.querySelector('.text');
+
+        signinbtn.addEventListener('click', () => {
+            Namefield.style.maxHeight = '0';
+            Title.innerHTML = 'Sign In';
+            text.innerHTML = 'Lost Password ?';
+            signupbtn.classList.add('disable');
+            signinbtn.classList.remove('disable');
+            Underline.style.transform = 'translateX(35px)';
+            
+        });
+        signupbtn.addEventListener('click', () => {
+            Namefield.style.maxHeight = '60px';
+            Title.innerHTML = 'Sign Up';
+            text.innerHTML = 'Password suggestions ';
+            signupbtn.classList.remove('disable');
+            signinbtn.classList.add('disable');
+            Underline.style.transform = 'translateX(0px)'
+        })
+
+        function pass_check() {
+            let x = document.getElementById("password1").value;
+           
+            let upperCaseRegex = /[A-Z]/;
+            let lowerCaseRegex = /[a-z]/;
+            let digitRegex = /[0-9]/;
+            let symbolRegex = /[$&+,:;=?@#|'<>.^*()%!-]/;
+           if (x.length < 8) {
+                alert("Password must be at least 8 characters long");
+                return false;
+            } else if (!upperCaseRegex.test(x)) {
+                alert("Password must contain at least one uppercase letter");
+                return false;
+            } else if (!lowerCaseRegex.test(x)) {
+                alert("Password must contain at least one lowercase letter");
+                return false;
+            } else if (!digitRegex.test(x)) {
+                alert("Password must contain at least one digit");
+                return false;
+            } else if (!symbolRegex.test(x)) {
+                alert("Password must contain at least one symbol");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
