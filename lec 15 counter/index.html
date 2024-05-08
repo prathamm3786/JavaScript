@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #FAE6FA;
+            color: #fff;
+            background-image: url('30+ Presentation Background Images for PowerPoint.jpg');
+            background-size:cover ;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        button {
+            height: 50px;
+            width: 100px;
+            border: 1px solid transparent;
+            background-color:  rgba(255, 255, 255, 0.523);
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 30px;
+            text-transform: capitalize;
+            transition: all 0.4s;
+            box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.1) , 4px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-plus{
+            border-radius: 0 30px 30px 0;
+            border: 1px solid #ffffff63;
+            background-color: transparent;
+            color: #fff;
+        }
+        .btn-minus{
+            border-radius: 30px 0 0 30px;
+            border: 1px solid #ffffff63;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .btn-reset{
+            border-radius: 30px;
+            margin-top: 15px;
+            width: 85%;
+            border: 1px solid #ffffff63;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        button:hover{
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .display {
+            padding: 50px 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: -8px -8px 14px rgba(0, 0, 0, 0.4) , 8px 8px 16px rgba(255, 255, 255, 0.1);
+        }
+
+        .counter {
+            font-size: 50px;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 30px;
+            
+        }
+    </style>
+
+    <section>
+        <div class="display">
+            <h1>counter</h1>
+            <div class="row">
+                <button class="btn-minus" id="decrement">-</button>
+                <div class="counter" id="count">
+                    0
+                </div>
+                <button class="btn-plus" id="increment"">+</button>
+
+            </div>
+            <button class="btn-reset" id="reset">reset</button>
+        </div>
+    </section>
+
+    <script>
+        let counter = 0;
+
+        const decrementBtn = document.getElementById("decrement");
+        const incrementBtn = document.getElementById("increment");
+        const resetBtn = document.querySelector("#reset");
+        const countBtn = document.getElementById("count");
+
+        incrementBtn.addEventListener("click", () => {
+            counter++;
+            countBtn.innerHTML = counter;
+        });
+        decrementBtn.addEventListener("click", () => {
+            if (counter > 0) {
+                counter--;
+            }
+            countBtn.innerHTML = counter;
+        });
+
+        resetBtn.addEventListener("click", () => {
+                counter = 0;
+            countBtn.innerHTML = counter;
+        });
+
+
+    </script>
+</body>
+
+</html>
