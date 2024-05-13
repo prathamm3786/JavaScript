@@ -1,0 +1,39 @@
+button:focus,
+input:focus{
+  outline: none;
+  box-shadow: none;
+}
+a,
+a:hover{
+  text-decoration: none;
+}
+
+/*--------------------------*/
+.qty-container{
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.qty-container .input-qty{
+  text-align: center;
+  padding: 10px 10px;
+  border: 1px solid #d4d4d4;
+  max-width: 80px;
+  background-color: #fff;
+}
+.qty-container .qty-btn-minus,
+.qty-container .qty-btn-plus{
+  border: 1px solid #d4d4d4;
+  padding: 10px 10px;
+  font-size: 10px;
+  height: 46px;
+  width: 46px;
+  transition: 0.3s;
+  text-align: center;
+}
+.qty-container .qty-btn-plus{
+  margin-left: -1px;
+}
+.qty-container .qty-btn-minus{
+  margin-right: -1px;
+}
