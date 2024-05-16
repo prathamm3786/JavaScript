@@ -1,0 +1,469 @@
+.instrument{
+    font-family: 'Instrument Sans SemiCondensed';
+}
+.fs-30{
+    font-size: 30px;
+}
+.fs-14{
+    font-size: 14px;
+}
+.fs-16{
+    font-size: 16px;
+}
+.fs-80{
+    font-size: 80px !important;
+}
+.fs-36{
+    font-size: 36px;
+}
+.fs-24{
+    font-size: 24px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.fs-45{
+    font-size: 45px;
+}
+.secondary-bg{
+    background-color: #f8f6f0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.feature a{
+    position: relative;
+    overflow: hidden;
+    
+}
+.feature a::after{
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    width: 100px;
+    height: 2px;
+    content: '';
+    border-bottom:solid black 2px;
+    border-radius: 5px;
+    transition: 0.2s linear;
+}
+.feature a:hover:after{
+    right: 0;
+    
+}
+.banner-btn:hover{
+    background-color: #d2ef9a !important; 
+}
+.banner-btn:hover a{
+    color: black !important;
+}
+.card-img{
+    transition: 0.2s ease-in-out;
+}
+.img-1{
+    transition: all 1s ease-in-out !important;
+}
+.img-2{
+    transition: all 1s ease-in-out !important;
+}
+.main-card:hover .card-img .img-1{
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+.main-card .card-img .img-2{
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+}
+.main-card:hover .card-img .img-2{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    transition: 0.3s;
+    
+}
+.card-options{
+    top: 10px;
+    right:-40px;
+    transition: 0.2s ease-in-out;
+}
+.main-card:hover .card-options{
+    top: 10px;
+    right:10px;
+}
+.card-options ul li a:hover{
+    background-color: black !important;
+    color: white !important;
+}
+.card-options ul li a{
+    transition: 0.2s linear;
+}
+.card-shop{
+    left: 17px;
+    bottom: -70px;
+    width: 90%;
+    transition: 0.2s ease-in-out;
+}
+.main-card:hover .card-shop{
+    bottom: 10px;
+    width: 90%;
+}
+.card-shop ul li:hover button{
+    background-color: black !important;
+    
+}
+.card-shop ul li button{
+    transition: 0.2s linear;
+
+}
+.card-shop ul li:hover button a{
+    color: white !important;
+}
+.card-shop ul li button a{
+    transition: 0.2s linear;
+}
+.main-card{
+    margin: 5px 0;
+}
+.add-banner img{
+    transition: 0.4s ease-in-out;
+}
+.add-banner img:hover {
+    transform: scale(1.1);
+}
+/* footer */
+footer {
+    color: #000000;
+}
+ul {
+    padding: 0px;
+}
+ol, ul {
+    margin-bottom: 0px;
+}
+
+.social-icon {
+    padding: 0;
+    margin-bottom: 0px;
+        float: right;
+}
+
+.social-icon li {
+    list-style: none;
+    display: inline-block;
+}
+.social-icon li i {
+    font-size: 14px;
+    color: #000000;
+    border: solid 2px #000000;
+    height: 31px;
+    width: 31px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 100px;
+    line-height: 27px;
+    margin-right: 15px;
+    transition: 1s;
+    background:  #f8f6f0;
+}
+.social-icon li i:hover {
+    border: solid 2px #000000;
+    color: #000000;
+    background: #262725;
+}
+
+.phone-no i {
+    position: relative;
+    margin-right: 14px;
+    font-size: 43px;
+    top: 5px;
+}
+.phone-no {
+    margin-top: -22px;
+    text-align: right;
+}
+.footer-day-time {
+    padding-bottom: 30px;
+    border-bottom: 2px solid #7a6f6f;
+    padding-top: 14px;
+    margin-bottom: 55px;
+}
+.footer-day-time ul li {
+    display: inline;
+    margin-right: 20px;
+}
+.footer-day-time ul li:last-child {
+    margin-right: 0px;
+}
+.phone-no a {
+    color: #000000;
+    font-family: PlayfairDisplay-Black;
+    font-size: 34px;
+    font-weight: bold;
+}
+.footer-top {
+    background:  #f8f6f0;
+    padding:50px 0 50px;
+}
+.footer-top h4 {
+    font-size: 19px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.footer-top p {
+    font-size: 13px;
+    line-height: 2;
+}
+
+footer p {
+  margin-bottom:0;
+}
+.footer-logo {
+    display: block;
+    margin-bottom: 32px;
+}
+.address1 li {
+    list-style: none;
+    position: relative;
+    padding: 0px 0 14px 34px;
+    line-height: 26px;
+}
+ul.address1 span {
+    position: absolute;
+    width: 40px;
+    max-width: 40px;
+    left: 0;
+}
+.address1 li a {
+    color: #000000;
+    text-decoration: none;
+}
+ul.address1 i {
+    width: 20px;
+    position: absolute;
+    left: 0px;
+    text-align: center;
+    font-size: 28px;
+    top: 0;
+}
+
+ul.address1 i.fa-envelope {
+    font-size: 18px;
+    top: 4px;
+}
+footer ul.social-icon {
+    float: left;
+}
+footer .social-icon li i:hover {
+    background:  #f8f6f0;
+    border-color:  #f8f6f0;
+}
+
+.footer-bottom {
+    background:  #f8f6f0;
+    padding: 10px 0px;
+}
+.footer-bottom ul li {
+    display: inline;
+    margin-right: 20px;
+    font-size: 18px;
+}
+.footer-bottom ul li a{
+    color:#000000;
+}
+
+.footer-bottom ul {
+    float: right;
+}
+
+.footer-bottom ul li:last-child {
+    margin-right: 0;
+}
+.copyright {
+    font-size: 18px;
+}
+
+
+/* add to cart  */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*,*:before,*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+
+.title-box >h1 {
+    font-size: 2.4rem;
+}
+.title-box >p{
+    margin-top: .5rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: .03rem;
+}
+.product-box{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+img{
+    width: 8rem;
+}
+.info-box >h5{
+    font-size: 1.3rem;
+}
+.info-box>p{
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    background-color: #83bd46;
+    color: #fff;
+    width: fit-content;
+    padding: .3rem 1.1rem;
+    border-radius: 2rem;
+}
+.info-box>.amount-box{
+    margin-top: 2rem;
+    display: flex;
+    gap: .3rem;
+}
+.info-box>.amount-box >div{
+    width: 2.5rem;
+    border-radius: .3rem;
+    aspect-ratio: 1;
+    background-color: #e0f2f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #191a3cee;
+    cursor: pointer;
+}
+.amount{
+    width: 2.5rem;
+    border: 1px solid #d1d1d1;
+    outline: none;
+    border-radius: .3rem;
+    text-align: center;
+    color: #191a3c;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+hr{
+    border: none;
+    border-top: 1px solid #e9e9e9;
+}
+.cost-box{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.cost-box >div{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+}
+.cost-box>div:nth-of-type(1)>p:nth-of-type(2){
+    font-weight: bold;
+}
+.cost-box>div:nth-of-type(2)>p:nth-of-type(2){
+    font-weight: bold;
+}
+.cost-box>div:nth-of-type(3)>p{
+    font-weight: bold;
+}
+.cost-box>p{
+    color: #5381f8;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.applied{
+    position: absolute;
+    background-color: #191a3c;
+    border-radius: 5px 0 0 5px;
+    color: #fff;
+    padding: .5rem 1rem;
+    bottom: 9.6rem;
+    right: 0;
+    opacity: 0;
+    transition: all .3s linear;
+}
+.Checkout-btn{
+    position: relative;
+    margin-top: .5rem;
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #5381f8;
+    border: none;
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all .25s linear;
+}
+.Checkout-btn:hover{
+    background-color: #fff;
+    color: #191a3c;
+    box-shadow: inset 0 0 0 1px #191a3c,
+             inset 10px 0 0 6px #191a3c;
+}
+.promo-box{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 5rem;
+    background-color: #191a3c;
+    border-radius: 1rem;
+    color: #fff;
+    opacity: 0;
+    display: none;
+    transition: all .3s linear;
+}
+.promo-box>h5{
+    font-size: 1.6rem;
+}
+#promo{
+    width: 10rem;
+    outline: none;
+    border: none;
+    padding: .4rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.7rem;
+}
+.send-promo{
+    border: none;
+    outline: none;
+    padding: .2rem .6rem;
+    border-radius: 3px;
+    margin-top: .3rem;
+    color: #191a3c;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    font-weight: bold;
+}
