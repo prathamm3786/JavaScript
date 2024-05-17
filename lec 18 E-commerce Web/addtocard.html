@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add to card</title>
+    <title>Add to Cart</title>
     <!-- Bootstrap stylesheets -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Css -->
@@ -14,65 +14,162 @@
     <!-- extra -->
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/styleadd.css">
 </head>
 
-<body>
-
-    <body>
+<body class="instrument">
+    <nav class="secondary-bg">
         <div class="container">
-            <div class="title-box">
-                <h1>Your shopping cart</h1>
-                <p>ID: 548856</p>
-            </div>
-            <div class="product-box">
-                <div class="img-box">
-                    <img src="assets/photos/png.png" alt="vacuum">
-                </div>
-                <div class="info-box">
-                    <h5>Raglan sleev
-                        t-shirt</h5>
-                    <p class="stock">In stock</p>
-                    <div class="amount-box">
-                        <div class="minus-box">
-                            <i class="fa-solid fa-minus"></i>
+            <div class="row">
+                <div class="header-div d-flex align-content-center p-3 justify-content-between">
+                    <div class="logo d-flex align-items-center">
+                        <div><a class="navbar-brand instrument fw-medium fs-30 p-0" href="#">Anvogue</a></div>
+                        <div class="menu d-flex align-items-center align-content-center ps-2">
+                            <ul class="list-inline d-flex align-items-center m-0">
+                                <li class="feature d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-2 text-uppercase fw-medium">demo</a></li>
+                                <li class="feature d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">features</a></li>
+                                <li class="feature d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">shop</a></li>
+                                <li class="feature d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">product</a></li>
+                                <li class="feature d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">blogs</a></li>
+                                <li class="feature d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">pages</a></li>
+                            </ul>
                         </div>
-                        <input type="number" readonly value="1" min="0" max="10" class="amount" id="amount">
-                        <div class="plus-box">
-                            <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="header-icon d-flex align-items-center">
+                        <div class="pe-5"><a href="#" class="text-black fs-20"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+                        <div class="">
+                            <ul class="m-0 list-inline d-flex align-items-center">
+                                <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-user"></i></a></li>
+                                <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-heart"></i></a></li>
+                                <li class="px-3"><a href="index.html" target="_blank" class="fs-20 "><i class="fa-solid fa-house"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="cost-box">
-                <div>
-                    <p>Standard Package</p>
-                    <p>FREE</p>
+        </div>
+    </nav>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center fs-24 fw-medium">Remove</th>
+                            <th class="text-center fs-24 fw-medium">Image</th>
+                            <th class="text-center fs-24 fw-medium">Product</th>
+                            <th class="text-center fs-24 fw-medium">Price</th>
+                            <th class="text-center fs-24 fw-medium">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                    
+                    </tbody>
+                </table>
+                <div id="checkout" class="text-end">
+                    <h5>Grand Total: <span id="grand-total">$0.00</span></h5>
+                    <button class="btn bg-black text-white ">Proceed to Checkout</button>
                 </div>
-                <div>
-                    <p>price</p>
-                    <p class="VAT">28 /-</p>
-                </div>
-                <!-- <div>
-                    <p>Total price</p>
-                    <p class="NOK">28,-</p>
-                </div> -->
-                <p class="gift">Got a gift card or a promotional code?</p>
-                <span class="applied">Promo Applied</span>
             </div>
-            <button class="Checkout-btn">Checkout</button>
         </div>
-        <div class="promo-box">
-            <h5>Enter your promo code</h5>
-            <input type="text" maxlength="6"  id="promo">
-            <button class="send-promo">Send</button>
-        </div>
-        <script src="script.js"></script>
-    </body>
+    </section>
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/index.js"></script>
+    <script>
+        const updateGrandTotal = () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let grandTotal = 0;
+            cart.forEach((item) => {
+                grandTotal += parseFloat(item.price.substring(1)) * item.quantity;
+            });
+            document.getElementById('grand-total').innerText = `$${grandTotal.toFixed(2)}`;
+        };
+
+        const getCart = () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let tableContent = "";
+    cart.forEach((item, index) => {
+        // Ensure each item has a quantity property set to 1 if it doesn't exist
+        if (!item.hasOwnProperty('quantity')) {
+            item.quantity = 1;
+        }
+        tableContent += `
+            <tr>
+                <td class="text-center">
+                    <button class="btn btn-danger" onclick="deleteRow(${index})">&times;</button>
+                </td>
+                <td class="text-center">
+                    <img src="${item.image}" width="100" alt="${item.name}">
+                </td>
+                <td class="text-center text-capitalize">${item.name}</td>
+                <td class="text-center" id="total-price-${index}">${item.price}</td>
+                <td class="text-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button class="btn btn-secondary" onclick="updateQuantity(${index}, -1)">-</button>
+                        <div class="px-3" id="count-${index}">${item.quantity}</div>
+                        <button class="btn btn-secondary" onclick="updateQuantity(${index}, 1)">+</button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    });
+    document.getElementById("cart-items").innerHTML = tableContent;
+    updateGrandTotal(); // Update the grand total
+};
+
+
+        const deleteRow = (index) => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            getCart(); // Refresh the cart display
+        };
+
+        const updateQuantity = (index, change) => {
+    const countElement = document.getElementById(`count-${index}`);
+    let currentCount = parseInt(countElement.innerText);
+    const newCount = currentCount + change;
+    if (newCount > 0) {
+        countElement.innerText = newCount;
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart[index].quantity += change;
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        const unitPrice = parseFloat(cart[index].price.substring(1));
+        const newTotalPrice = (unitPrice * newCount).toFixed(2);
+
+        document.getElementById(`total-price-${index}`).innerText = `$${newTotalPrice}`;
+        updateGrandTotal(); // Update the grand total
+    } else {
+        // If the new quantity would be negative, set the quantity to 1
+        countElement.innerText = 1;
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart[index].quantity = 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        const unitPrice = parseFloat(cart[index].price.substring(1));
+        const newTotalPrice = unitPrice.toFixed(2);
+
+        document.getElementById(`total-price-${index}`).innerText = `$${newTotalPrice}`;
+        updateGrandTotal(); // Update the grand total
+    }
+};
+
+
+document.addEventListener("DOMContentLoaded", getCart);
+
+</script>
 </body>
 
 </html>
+
+

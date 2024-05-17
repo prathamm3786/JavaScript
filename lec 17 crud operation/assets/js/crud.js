@@ -65,3 +65,5 @@ function delet(id) {
     data = data.filter(rec => rec.id !== id)
     readAll()
 }
+
+
