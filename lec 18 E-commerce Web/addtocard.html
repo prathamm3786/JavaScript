@@ -166,7 +166,7 @@
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     let tableContent = "";
     cart.forEach((item, index) => {
-        // Ensure each item has a quantity property set to 1 if it doesn't exist
+     
         if (!item.hasOwnProperty('quantity')) {
             item.quantity = 1;
         }
@@ -191,7 +191,7 @@
         `;
     });
     document.getElementById("cart-items").innerHTML = tableContent;
-    updateGrandTotal(); // Update the grand total
+    updateGrandTotal(); 
 };
 
 
@@ -199,7 +199,7 @@
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
-            getCart(); // Refresh the cart display
+            getCart(); 
         };
 
         const updateQuantity = (index, change) => {
@@ -217,9 +217,9 @@
         const newTotalPrice = (unitPrice * newCount).toFixed(2);
 
         document.getElementById(`total-price-${index}`).innerText = `$${newTotalPrice}`;
-        updateGrandTotal(); // Update the grand total
+        updateGrandTotal(); 
     } else {
-        // If the new quantity would be negative, set the quantity to 1
+        
         countElement.innerText = 1;
 
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -230,7 +230,7 @@
         const newTotalPrice = unitPrice.toFixed(2);
 
         document.getElementById(`total-price-${index}`).innerText = `$${newTotalPrice}`;
-        updateGrandTotal(); // Update the grand total
+        updateGrandTotal();
     }
 };
 
