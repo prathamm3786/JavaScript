@@ -41,12 +41,14 @@
                         </div>
                     </div>
                     <div class="header-icon d-flex align-items-center">
-                        <div class="pe-5"><a href="#" class="text-black fs-20"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+                        <div class="pe-5"><a href="#" class="text-black fs-20"><i
+                                    class="fa-solid fa-magnifying-glass"></i></a></div>
                         <div class="">
                             <ul class="m-0 list-inline d-flex align-items-center">
                                 <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-user"></i></a></li>
                                 <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-heart"></i></a></li>
-                                <li class="px-3"><a href="index.html" target="_blank" class="fs-20 "><i class="fa-solid fa-house"></i></a></li>
+                                <li class="px-3"><a href="index.html" target="_blank" class="fs-20 "><i
+                                            class="fa-solid fa-house"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -69,7 +71,7 @@
                         </tr>
                     </thead>
                     <tbody id="cart-items">
-                    
+
                     </tbody>
                 </table>
                 <div id="checkout" class="text-end">
@@ -86,8 +88,8 @@
                     <div class="row">
                         <div class="col-md-8">
                             <ul>
-                                
-                           <h1>Anvogue</h1>
+
+                                <h1>Anvogue</h1>
                             </ul>
                         </div>
                         <div class="col-lg-4">
@@ -113,7 +115,8 @@
                         <ul class="address1">
                             <li><i class="fa fa-map-marker pe-2"></i>Lorem Ipsum 132 xyz Lorem Ipsum</li>
                             <li><i class="fa fa-envelope pe-2"></i><a href="mailto:#">info@test.com</a></li>
-                            <li><i class="fa fa-mobile pe-2" aria-hidden="true"></i> <a href="tel:12 34 56 78 90">12 34 56 78
+                            <li><i class="fa fa-mobile pe-2" aria-hidden="true"></i> <a href="tel:12 34 56 78 90">12 34
+                                    56 78
                                     90</a></li>
                         </ul>
                     </div>
@@ -156,90 +159,86 @@
         const updateGrandTotal = () => {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             let grandTotal = 0;
+
             cart.forEach((item) => {
-                grandTotal += parseFloat(item.price.substring(1)) * item.quantity;
+                if (typeof item.price === 'string' && !isNaN(parseFloat(item.price.substring(1))) && typeof item.quantity === 'number') {
+                    grandTotal += parseFloat(item.price.substring(1)) * item.quantity;
+                } else {
+                    console.error('Invalid item data:', item);
+                }
             });
-            document.getElementById('grand-total').innerText = `$${grandTotal.toFixed(2)}`;
+
+            if (!isNaN(grandTotal)) {
+                document.getElementById('grand-total').innerText = `Grand Total: $${grandTotal.toFixed(2)}`;
+            } else {
+                document.getElementById('grand-total').innerText = 'Grand Total: $0.00';
+                console.error('Grand total calculation resulted in NaN');
+            }
         };
 
         const getCart = () => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let tableContent = "";
-    cart.forEach((item, index) => {
-     
-        if (!item.hasOwnProperty('quantity')) {
-            item.quantity = 1;
-        }
-        tableContent += `
-            <tr>
-                <td class="text-center">
-                    <button class="btn btn-danger" onclick="deleteRow(${index})">&times;</button>
-                </td>
-                <td class="text-center">
-                    <img src="${item.image}" width="100" alt="${item.name}">
-                </td>
-                <td class="text-center text-capitalize">${item.name}</td>
-                <td class="text-center" id="total-price-${index}">${item.price}</td>
-                <td class="text-center">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <button class="btn btn-secondary" onclick="updateQuantity(${index}, -1)">-</button>
-                        <div class="px-3" id="count-${index}">${item.quantity}</div>
-                        <button class="btn btn-secondary" onclick="updateQuantity(${index}, 1)">+</button>
-                    </div>
-                </td>
-            </tr>
-        `;
-    });
-    document.getElementById("cart-items").innerHTML = tableContent;
-    updateGrandTotal(); 
-};
-
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let tableContent = "";
+            cart.forEach((item, index) => {
+                if (!item.hasOwnProperty('quantity')) {
+                    item.quantity = 1;
+                }
+                tableContent += `
+                    <tr>
+                        <td>
+                            <button class="btn btn-danger" onclick="deleteRow(${index})">&times;</button>
+                        </td>
+                        <td>
+                            <img src="${item.image}" width="100" alt="${item.name}">
+                        </td>
+                        <td class="text-capitalize">${item.name}</td>
+                        <td id="total-price-${index}">${item.price}</td>
+                        <td>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <button class="btn btn-secondary" onclick="updateQuantity(${index}, -1)">-</button>
+                                <div class="px-3" id="count-${index}">${item.quantity}</div>
+                                <button class="btn btn-secondary" onclick="updateQuantity(${index}, 1)">+</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            document.getElementById("cart-items").innerHTML = tableContent;
+            updateGrandTotal();
+        };
 
         const deleteRow = (index) => {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
-            getCart(); 
+            getCart();
         };
 
         const updateQuantity = (index, change) => {
-    const countElement = document.getElementById(`count-${index}`);
-    let currentCount = parseInt(countElement.innerText);
-    const newCount = currentCount + change;
-    if (newCount > 0) {
-        countElement.innerText = newCount;
+            const countElement = document.getElementById(`count-${index}`);
+            let currentCount = parseInt(countElement.innerText);
+            const newCount = currentCount + change;
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart[index].quantity += change;
-        localStorage.setItem('cart', JSON.stringify(cart));
+            if (newCount > 0 && newCount <= 10) {
+                countElement.innerText = newCount;
 
-        const unitPrice = parseFloat(cart[index].price.substring(1));
-        const newTotalPrice = (unitPrice * newCount).toFixed(2);
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart[index].quantity = newCount;
+                localStorage.setItem('cart', JSON.stringify(cart));
 
-        document.getElementById(`total-price-${index}`).innerText = `$${newTotalPrice}`;
-        updateGrandTotal(); 
-    } else {
-        
-        countElement.innerText = 1;
+                const unitPrice = parseFloat(cart[index].price.substring(1));
+                const newTotalPrice = (unitPrice * newCount).toFixed(2);
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart[index].quantity = 1;
-        localStorage.setItem('cart', JSON.stringify(cart));
+                document.getElementById(`total-price-${index}`).innerText = `$${newTotalPrice}`;
+                updateGrandTotal();
+            } else if (newCount > 10) {
+                alert('Max Quntity of Order is 10');
+            }
+        };
 
-        const unitPrice = parseFloat(cart[index].price.substring(1));
-        const newTotalPrice = unitPrice.toFixed(2);
-
-        document.getElementById(`total-price-${index}`).innerText = `$${newTotalPrice}`;
-        updateGrandTotal();
-    }
-};
-
-
-document.addEventListener("DOMContentLoaded", getCart);
-
-</script>
+        document.addEventListener("DOMContentLoaded", getCart);
+    </script>
+    
 </body>
 
 </html>
-
-
