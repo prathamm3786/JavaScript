@@ -47,7 +47,7 @@
                             <ul class="m-0 list-inline d-flex align-items-center">
                                 <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-user"></i></a></li>
                                 <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-heart"></i></a></li>
-                                <li class="px-3"><a href="index.html" target="_blank" class="fs-20 "><i
+                                <li class="px-3"><a href="index.html" target=" " class="fs-20 "><i
                                             class="fa-solid fa-house"></i></a></li>
                             </ul>
                         </div>
@@ -157,14 +157,12 @@
     <script src="assets/js/index.js"></script>
     <script>
         const updateGrandTotal = () => {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart'));
             let grandTotal = 0;
 
             cart.forEach((item) => {
                 if (typeof item.price === 'string' && !isNaN(parseFloat(item.price.substring(1))) && typeof item.quantity === 'number') {
                     grandTotal += parseFloat(item.price.substring(1)) * item.quantity;
-                } else {
-                    console.error('Invalid item data:', item);
                 }
             });
 
@@ -172,12 +170,11 @@
                 document.getElementById('grand-total').innerText = `Grand Total: $${grandTotal.toFixed(2)}`;
             } else {
                 document.getElementById('grand-total').innerText = 'Grand Total: $0.00';
-                console.error('Grand total calculation resulted in NaN');
             }
         };
 
         const getCart = () => {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('cart'));
             let tableContent = "";
             cart.forEach((item, index) => {
                 if (!item.hasOwnProperty('quantity')) {
@@ -208,7 +205,7 @@
         };
 
         const deleteRow = (index) => {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cart = JSON.parse(localStorage.getItem('cart'));
             cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
             getCart();
@@ -222,7 +219,7 @@
             if (newCount > 0 && newCount <= 10) {
                 countElement.innerText = newCount;
 
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let cart = JSON.parse(localStorage.getItem('cart'));
                 cart[index].quantity = newCount;
                 localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -238,7 +235,7 @@
 
         document.addEventListener("DOMContentLoaded", getCart);
     </script>
-    
+
 </body>
 
 </html>
