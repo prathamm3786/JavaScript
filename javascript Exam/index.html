@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidol Javascript Exam</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/image/toys.png" type="image/x-icon">
+</head>
+
+<body class="instrument">
+    <nav class="" style="background-color: #fcdcea;">
+        <div class="container">
+            <div class="row ">
+                <div class="header-div d-flex align-content-center p-3 justify-content-between">
+                    <div class="logo d-flex align-items-center">
+                        <div>
+                            <a class="navbar-brand instrument fw-medium fs-30 p-0" href="#"><img src="assets/image/logo.png" width="100" alt=""></a>
+                        </div>
+                        <div class="menu d-flex align-items-center align-content-center ps-2">
+                            <ul class="list-inline d-flex align-items-center m-0">
+                                <li class="feature d-flex align-items-center px-3"><a href="#" class="text-black fs-14 px-1 text-uppercase fw-medium">shop</a></li>
+                                <li class="feature d-flex align-items-center px-3"><a href="#" class="text-black fs-14 px-1 text-uppercase fw-medium">product</a></li>
+                                <li class="feature d-flex align-items-center px-3"><a href="#" class="text-black fs-14 px-1 text-uppercase fw-medium">blogs</a></li>
+                                <li class="feature d-flex align-items-center px-3"><a href="#" class="text-black fs-14 px-1 text-uppercase fw-medium">pages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header-icon d-flex align-items-center">
+                        <div class="pe-5"><a href="#" class="text-black fs-20"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+                        <div class="">
+                            <ul class="m-0 list-inline d-flex align-items-center">
+                                <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-user"></i></a></li>
+                                <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-heart"></i></a></li>
+                                <li class="px-3"><a href="adcart.html" target="" class="fs-20 "><i class="fa-solid fa-cart-shopping"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="heading d-flex justify-content-center align-content-center align-items-center">
+                <h2 class="fs-36 m-0">Our Products</h2>
+            </div>
+            <div class="row row-cols-5 gy-5" id="product"></div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-day-time">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <ul>
+                                
+                           <h1>Kidol</h1>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="phone-no">
+                                <a href="tel:+12 34 56 78 90"><i class="fa fa-mobile" aria-hidden="true"></i>Call +12 34
+                                    56 78 90</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+
+                        <h4>About us</h4>
+                        <p>Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum war der Standard
+                            der Branche Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum war
+                            der Standard der Branche </p>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4>Information</h4>
+                        <ul class="address1">
+                            <li><i class="fa fa-map-marker pe-2"></i>Lorem Ipsum 132 xyz Lorem Ipsum</li>
+                            <li><i class="fa fa-envelope pe-2"></i><a href="mailto:#">info@test.com</a></li>
+                            <li><i class="fa fa-mobile pe-2" aria-hidden="true"></i> <a href="tel:12 34 56 78 90">12 34 56 78
+                                    90</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4>Follow us</h4>
+                        <ul class="social-icon">
+                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <p class="copyright text-uppercase">Copyright © 2018
+                        </p>
+                    </div>
+                    <div class="col-sm-7">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our services</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/adcart.js"></script>
+    <script>
+      
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let tbl = "";
+            products.forEach((p) => {
+                tbl += `
+                <div class="p-2">
+                    <div class="main-card p-3" style="background-color: #fcdcea; border-radius: 10px;">
+                        <div class="card-img pb-3"><img src="${p.image}" style="height:130px" alt=""></div>
+                        <div class="card-content">
+                            <div class="star">
+                                <ul class="d-flex list-inline">
+                                    <li class="pe-1"><img src="assets/image/star.png" width="20" alt=""></li>
+                                    <li class="pe-1"><img src="assets/image/star.png" width="20" alt=""></li>
+                                    <li class="pe-1"><img src="assets/image/star.png" width="20" alt=""></li>
+                                    <li class="pe-1"><img src="assets/image/star.png" width="20" alt=""></li>
+                                    <li class=""><img src="assets/image/star.png" width="20" alt=""></li>
+                                </ul>
+                            </div>
+                            <div class="product-name"><span class="fw-medium text-capitalize">${p.name}</span></div>
+                            <div class="product-price"><span class="fw-medium">${p.price}</span></div>
+                            <div class="add-button d-flex justify-content-center">
+                                <button class="border-0 rounded-pill p-1 px-2" style="background-color: #e4f6fe !important;" onclick="addCart(${p.id})">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            document.getElementById("product").innerHTML = tbl;
+        });
+
+        let cart = [];
+        const addCart = (id) => {
+            const product = products.find(item => item.id === id);
+            if (product) {
+                cart.push(product);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert("Your product is added to cart");
+            }
+        };
+    </script>
+</body>
+
+</html>

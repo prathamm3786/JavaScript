@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/image/toys.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+</head>
+
+<body class="instrument">
+    <nav class="" style="background-color: #fcdcea;">
+        <div class="container">
+            <div class="row">
+                <div class="header-div d-flex align-content-center p-3 justify-content-between">
+                    <div class="logo d-flex align-items-center">
+                        <div><a class="navbar-brand instrument fw-medium fs-30 p-0" href="#"><img src="assets/image/logo.png" width="100" alt=""></a></div>
+                        <div class="menu d-flex align-items-center align-content-center ps-2">
+                            <ul class="list-inline d-flex align-items-center m-0">
+                                <li class="  d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">shop</a></li>
+                                <li class="  d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">product</a></li>
+                                <li class="  d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">blogs</a></li>
+                                <li class="  d-flex align-items-center px-3"><a href="#"
+                                        class="text-black fs-14 px-1 text-uppercase fw-medium">pages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header-icon d-flex align-items-center">
+                        <div class="pe-5"><a href="#" class="text-black fs-20"><i
+                                    class="fa-solid fa-magnifying-glass"></i></a></div>
+                        <div class="">
+                            <ul class="m-0 list-inline d-flex align-items-center">
+                                <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-user"></i></a></li>
+                                <li class="px-3"><a href="#" class="fs-20 "><i class="fa-regular fa-heart"></i></a></li>
+                                <li class="px-3"><a href="index.html" target=" " class="fs-20 "><i
+                                            class="fa-solid fa-house"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5" style="min-height: 500px;">
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center fs-24 fw-medium">Remove</th>
+                            <th class="text-center fs-24 fw-medium">Image</th>
+                            <th class="text-center fs-24 fw-medium">Product</th>
+                            <th class="text-center fs-24 fw-medium">Price</th>
+                            <th class="text-center fs-24 fw-medium">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+
+                    </tbody>
+                </table>
+                <div id="checkout" class="text-end">
+                    <h5><span id="grand-total">$0.00</span></h5>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/adcart.js"></script>
+    <script>
+        const updateGrandTotal = () => {
+            const cart = JSON.parse(localStorage.getItem('cart'));
+            let grandTotal = 0;
+
+            cart.forEach((item) => {
+                if (typeof item.price === 'string' && !isNaN(parseFloat(item.price.substring(1))) && typeof item.quantity === 'number') {
+                    grandTotal += parseFloat(item.price.substring(1)) * item.quantity;
+                }
+            });
+
+            if (!isNaN(grandTotal)) {
+                document.getElementById('grand-total').innerText = `Grand Total: $${grandTotal.toFixed(2)}`;
+            } else {
+                document.getElementById('grand-total').innerText = 'Grand Total: $0.00';
+            }
+        };
+
+        const getCart = () => {
+            const cart = JSON.parse(localStorage.getItem('cart'));
+            let tableContent = "";
+            cart.forEach((item, index) => {
+                if (!item.hasOwnProperty('quantity')) {
+                    item.quantity = 1;
+                }
+                tableContent += `
+                    <tr>
+                        <td>
+                            <button class="btn bg-black text-white" onclick="deleteRow(${index})">&times;</button>
+                        </td>
+                        <td>
+                            <img src="${item.image}" width="100" alt="${item.name}">
+                        </td>
+                        <td class="text-capitalize">${item.name}</td>
+                        <td id="total-price-${index}">${item.price}</td>
+                        <td>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <button class="btn border bg-white text-black" onclick="updateQuantity(${index}, -1)">-</button>
+                                <div class="px-3" id="count-${index}">${item.quantity}</div>
+                                <button class="btn border bg-white text-black" onclick="updateQuantity(${index}, 1)">+</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            document.getElementById("cart-items").innerHTML = tableContent;
+            updateGrandTotal();
+        };
+
+        const deleteRow = (index) => {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            getCart();
+        };
+
+        const updateQuantity = (index, change) => {
+            const countElement = document.getElementById(`count-${index}`);
+            let currentCount = parseInt(countElement.innerText);
+            const newCount = currentCount + change;
+
+            if (newCount > 0 && newCount <= 10) {
+                countElement.innerText = newCount;
+
+                let cart = JSON.parse(localStorage.getItem('cart'));
+                cart[index].quantity = newCount;
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                const unitPrice = parseFloat(cart[index].price.substring(1));
+                const newTotalPrice = (unitPrice * newCount).toFixed(2);
+
+                document.getElementById(`total-price-${index}`).innerText = `$${newTotalPrice}`;
+                updateGrandTotal();
+            } else if (newCount > 10) {
+                alert('Max Quntity of Order is 10');
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", getCart);
+    </script>
+
+</body>
+
+</html>
