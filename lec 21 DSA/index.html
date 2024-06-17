@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function insertData(arr,pos,value){
+            for(let i=arr.length;i>=pos;i++){
+                arr[i+1]=arr[i];
+            }
+            arr[pos]=value;
+            return arr;
+        }
+        let a = [10, 20, 40, 50];
+        let p = 2;
+        let v = 30;
+        let ans = insertData(a,p,v);
+        console.log(ans);
+    </script>
+</body>
+</html>

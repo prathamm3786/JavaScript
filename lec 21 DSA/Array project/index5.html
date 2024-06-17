@@ -1,0 +1,16 @@
+<script>
+        function deleteElement(arr, pos) {
+            let newArray = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (i !== pos) {
+                    newArray.push(arr[i]);
+                }
+            }
+            return newArray;
+        }
+
+        let arr = [10, 20, 30, 40, 50];
+        let pos = 2;
+        let result = deleteElement(arr, pos);
+        console.log(result);
+    </script>

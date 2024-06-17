@@ -1,0 +1,19 @@
+<script>
+        function updateElement(arr, pos, value) {
+            let newArray = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (i === pos) {
+                    newArray.push(value);
+                } else {
+                    newArray.push(arr[i]);
+                }
+            }
+            return newArray;
+        }
+
+        let arr = [10, 20, 30, 40, 50];
+        let pos = 2;
+        let value = 25;
+        let result = updateElement(arr, pos, value);
+        console.log(result);
+    </script>

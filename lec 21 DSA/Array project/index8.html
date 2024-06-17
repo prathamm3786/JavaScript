@@ -1,0 +1,29 @@
+<script>
+        function columnSum(arr) {
+            let numRows = arr.length;
+            let numCols = arr[0].length;
+            let result = new Array(numCols).fill(0);
+
+            for (let i = 0; i < numRows; i++) {
+                for (let j = 0; j < numCols; j++) {
+                    result[j] += arr[i][j];
+                }
+            }
+            return result;
+        }
+
+        let arr = [
+            [7, 8, 9],
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+
+        let sums = columnSum(arr);
+        for (let j = 0; j < arr[0].length; j++) {
+            let column = [];
+            for (let i = 0; i < arr.length; i++) {
+                column.push(arr[i][j]);
+            }
+            console.log(`[${column}] = ${sums[j]}`);
+        }
+    </script>
