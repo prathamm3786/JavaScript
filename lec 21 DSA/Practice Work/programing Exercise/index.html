@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add,View,Edit & Delete element</title>
+    <title>Programing Exercise 2</title>
 </head>
 
 <body>
     <script>
-        class Node {
+        class Node{
             constructor(val) {
                 this.data = val;
                 this.next = null
             }
         }
 
-        class LinkedList {
+        class List {
 
             constructor() {
                 this.head = null
@@ -37,7 +37,7 @@
                 current.next = newNode;
             }
 
-            print() {
+            printList() {
                 let current = this.head;
                 while (current) {
                     console.log(current.data);
@@ -49,7 +49,7 @@
                 let current = this.head;
 
                 for (let i = 0; i < index - 1; i++) {
-                    current = current.next; 
+                    current = current.next;
                 }
                 current.next = current.next.next
             }
@@ -67,24 +67,24 @@
 
         }
 
-        const linkedlist = new LinkedList();
-        linkedlist.addList("The way to get started is to quit talking and begin doing. -Walt Disney");
-        linkedlist.addList("You must be the change you wish to see in the world. -Mahatma Gandhi");
-        linkedlist.addList("The only thing we have to fear is fear itself. -Franklin D. Roosevelt");
-        linkedlist.addList("Do one thing every day that scares you. -Eleanor Roosevelt");
-        linkedlist.addList("Well done is better than well said. -Benjamin Franklin");
-        linkedlist.addList("“Be yourself; everyone else is already taken.” – Oscar Wilde");
-        linkedlist.addList("“The purpose of our lives is to be happy.” – Dalai Lama");
+        const List = new List();
+        List.addList(11)
+        List.addList(12)
+        List.addList(13)
+        List.addList(14)
+        List.addList(15)
+        List.addList(16)
 
-        linkedlist.print();
+        List.printList()
 
-        console.log("Delete Node :- ");
-        linkedlist.deleteRecord(3);
-        linkedlist.print();
+        console.log(`Delete Node`);
+        List.deleteRecord(3);
+        List.print()
 
-        console.log("Update Node :- ");
-        linkedlist.updateRecord(4, "“You only live once, but if you do it right, once is enough.” – Mae West");
-        linkedlist.print();
+        
+        console.log(`Update Node`);
+        List.updateRecord(4, 55);
+        List.print()
     </script>
 </body>
 
