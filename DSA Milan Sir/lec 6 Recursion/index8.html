@@ -1,0 +1,11 @@
+<script>
+    function printTable(number, end = 10, multi = 1) {
+        if (multi <= end) {
+            console.log(`${number} x ${multi} = ${number * multi}`);
+            printTable(number, end, multi + 1);
+        }
+    }
+
+    let number = parseInt(prompt("Enter a number:"));
+    printTable(number);
+</script>

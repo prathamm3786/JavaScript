@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W</title>
+</head>
+
+<body>
+    <script>
+         for (i = 2; i <= 8; i++) {
+            for (j = 1; j <= 9; j++) {
+                if ((i >= 5 && (j == i || j == 10 - i))|| j == 1 || j ==9) {
+                    document.write("* ");
+                }
+                else {
+                    document.write("&nbsp;&nbsp;&nbsp");
+                }
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+
+</html>

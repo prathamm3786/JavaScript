@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recursion 5</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Please enter no. of terms:"));
+        console.log(`Fibonacci Series:`);
+        let ans,no1=0,no2=1,no3;
+        function recursion(no){
+            console.log(`${no1}`);
+            
+           no3 = no1 + no2;
+           no1 = no2;
+           no2 = no3;
+
+           let Newno = no + 1;
+           if(Newno <= n){
+            recursion(Newno);
+           }
+        }
+        recursion(0);
+       
+    </script>
+</body>
+</html>

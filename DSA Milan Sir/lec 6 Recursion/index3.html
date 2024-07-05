@@ -1,0 +1,14 @@
+<script>
+    function numberPrint(number, startingNumber = 1) {
+        if (startingNumber <= number) {
+           if(startingNumber%2==0){
+            console.log(startingNumber);
+           }
+            startingNumber++;
+            numberPrint(number, startingNumber);
+        }
+    }
+
+    let n = parseInt(prompt("Enter a number:"));
+    numberPrint(n);
+</script>

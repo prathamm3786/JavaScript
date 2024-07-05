@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N</title>
+</head>
+
+<body>
+    <script>
+        let i = 2;
+        while (i <= 9) {
+            let j = 1;
+            while (j <= 10) {
+                if (j === 1 || j === 10 || j === i) {
+                    document.write("* ");
+                } else {
+                    document.write("&nbsp;&nbsp;&nbsp;");
+                }
+                j++;
+            }
+            document.write("<br>");
+            i++;
+        }
+    </script>
+</body>
+
+</html>

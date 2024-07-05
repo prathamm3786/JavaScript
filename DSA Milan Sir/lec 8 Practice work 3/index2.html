@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recursion 2</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Please enter value for n:"));
+        let sum = 0;
+
+        function recursion(no){
+           let Newno = no + 1;
+           sum = sum + no;
+           if(Newno <= n){
+            recursion(Newno);
+           }
+        }
+        recursion(1);
+        console.log(`sum = ${sum}`);
+    </script>
+</body>
+</html>
