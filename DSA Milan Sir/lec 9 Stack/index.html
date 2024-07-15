@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greater next</title>
+</head>
+<body>
+    <script>
+        let arr = [11,5,24,14,52,65]
+        let n=arr.length
+        for(let i=0;i<n;i++){
+            let next = -1
+            for(let j=i+1;j<n;j++){
+                if(arr[i]<arr[j]){
+                    next = arr[j]
+                    } break
+                } console.log(`${arr[i]} --> ${next}`)
+                }
+               
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stack</title>
+</head>
+<body>
+    <script>
+
+        class Stack{
+            constructor(){
+                this.items = [12,13,14];
+            }
+            // Add an element to the top of the stack.
+            unshift(ele){
+                this.items.unshift(ele);
+            }
+            //Get the top element without removing it.
+            peek(){
+               return this.items[0];
+            }
+            //Remove the top element
+            shift(){
+                return this.items.shift();
+            }
+             // Check if the stack is empty
+             empty(){
+                return this.items.length === 0;
+             }
+             // Size
+             size(){
+                return this.items.length;
+             }
+            //print
+            printStack(){
+                console.log(this.items.join(' , '));
+            }
+        }
+        let stack = new Stack();
+
+        stack.unshift(11);
+
+        console.log(`top element in stack`);
+        console.log(stack.peek());
+        console.log(`Add top element in stack`);
+        stack.printStack();
+        console.log(`Remove top element in stack`);
+        console.log(stack.shift());
+        console.log(`Remaining stack element`);
+        stack.printStack();
+        console.log(`Check empty stack`);
+        console.log(stack.empty());
+        console.log(`Size of stack`);
+        console.log(stack.size());
+    </script>
+</body>
+</html>

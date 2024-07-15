@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue</title>
+</head>
+<body>
+    <script>
+        class Queue{
+            constructor(){
+                this.items = [11,12,13,14];
+            }
+            // Add an element to the end of the queue.
+            enqueue(ele){
+                this.items.push(ele);
+            }
+            //Get the top element without removing it.
+            peek(){
+               return this.items[0];
+            }
+            //Remove the top element
+            dequeue(){
+                return this.items.shift();
+            }
+             // Check if the Queue is empty
+             empty(){
+                return this.items.length === 0;
+             }
+             // Size
+             size(){
+                return this.items.length;
+             }
+            //print
+            print(){
+                console.log(this.items.join(' , '));
+            }
+        }
+        let queue = new Queue();
+
+        queue.enqueue(15);
+
+        console.log(`Get top element`);
+        console.log(queue.peek());
+        console.log(`Add end element`);
+        queue.printQueue();
+        console.log(`Remove top element`);
+        console.log(queue.dequeue());
+        console.log(`Remaining queue element`);
+        queue.print();
+        console.log(`Check empty queue`);
+        console.log(queue.empty());
+        console.log(`Size of queue`);
+        console.log(queue.size());
+    </script>
+</body>
+</html>
